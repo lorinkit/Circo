@@ -11,14 +11,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ message: 'Database error. Please try again later.' });
     }
   } else if (req.method === 'POST') {
-    const { recipeName, recipeAuthor, description, equipment, ingredients, instructions } = req.body;
+    const { recipeName, recipeAuthor, preptime, cooktime, totaltime, servings, description, category, ingredients, instructions } = req.body;
 
     try {
-      if (!recipeName || !recipeAuthor || !description || !equipment || !ingredients || !instructions) {
+      // Validation
+      if (!recipeName || !recipeAuthor || !preptime || !cooktime || !totaltime || !servings || !description || !category || !ingredients || !instructions) {
         return res.status(400).json({ message: 'All fields are required.' });
       }
 
-      await insertRecipe({ recipeName, recipeAuthor, description, equipment, ingredients, instructions });
+      // Create new recipe
+      await insertRecipe({
+        recipeName,
+        preptime,
+        cooktime,
+        totaltime,
+        servings,
+        recipeAuthor,
+        description,
+        category,
+        ingredients,
+        instructions,
+      });
       return res.status(201).json({ message: 'Recipe successfully created!' });
     } catch (error) {
       console.error('Database error:', error);

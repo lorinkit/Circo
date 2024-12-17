@@ -4,11 +4,11 @@ import MainLayout from '@/components/layout/MainLayout';
 
 const Home: React.FC = () => {
   const buttons = [
-    { src: '/images/appetizers/Deviled eggs.png', alt: 'Deviled Eggs', id: 'eggs' },
-    { src: '/images/appetizers/Stuffed mushroom.jpg', alt: 'Stuffed Mushroom', id: 'mushroom' },
-    { src: '/images/appetizers/Buffalo Cauliflower Wings.jpg', alt: 'Buffalo Cauliflower Wings', id: 'buffalo-cauliflower' },
-    { src: '/images/appetizers/Taquitos.jpg', alt: 'Taquitos', id: 'taquitos' },
-    { src: '/images/appetizers/Jalapeno Poppers.jpg', alt: 'Jalapeno Poppers', id: 'jalapeno-poppers' },
+    { src: '/images/desserts/Banana Pudding.jpg', alt: 'No-Bake Nutter Butter Banana Pudding Cheesecake ', id: 'cheesecake' },
+    { src: '/images/desserts/Blackberry Brownies.jpg', alt: 'Blackberry Cheesecake Brownies', id: 'brownies' },
+    { src: '/images/desserts/Goey Butter Cookies.jpg', alt: 'Gooey Butter Cookies', id: 'cookies' },
+    { src: '/images/desserts/Pineapple Upside Down Cupcakes.jpg', alt: 'Pineapple Upside Down Cupcakes', id: 'cupcakes' },
+    { src: '/images/desserts/Raspberry and Strawberry Buckle.jpg', alt: 'Raspberry and Strawberry Buckle', id: 'buckle' },
   ];
 
   return (
@@ -26,37 +26,23 @@ const Home: React.FC = () => {
 
         {/* Content Section */}
         <div style={contentStyle}>
-          <h1 style={headerStyle}>Circo Recipe Share</h1>
-          <p style={introStyle}>Appetizers</p>
+            <h1 style={headerStyle}>Circo Recipe Share</h1>
+            <p style={introStyle}>Desserts</p>
 
-          {/* Section 1 */}
-          <div style={columnsContainerStyle}>
+            {/* Section 1 */}
+            <div style={columnsContainerStyle}>
             {buttons.slice(0, 5).map((button, index) => (
-              <Link key={index} href={`/recipes/recipelist/apetizers/${button.id}`} style={buttonStyle}>
+                <Link key={index} href={`/recipes/recipelist/desserts/${button.id}`} style={buttonStyle}>
                 <div>
-                  <img src={button.src} alt={button.alt} style={imageStyle} />
-                  <span style={captionStyle}>{button.alt}</span>
+                    <img src={button.src} alt={button.alt} style={imageStyle} />
+                    <span style={captionStyle}>{button.alt}</span>
                 </div>
-              </Link>
+                </Link>
             ))}
-          </div>
-
-          {/* Section Divider */}
-          <hr style={dividerStyle} />
-
-          {/* Section 2 */}
-          <div style={columnsContainerStyle}>
-            {buttons.slice(5).map((button, index) => (
-              <Link key={index} href={`/recipes/recipelist/apetizers/${button.id}`} style={buttonStyle}>
-                <div>
-                  <img src={button.src} alt={button.alt} style={imageStyle} />
-                  <span style={captionStyle}>{button.alt}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
+            </div>
         </div>
-      </div>
+    </div>
+
     </MainLayout>
   );
 };
@@ -115,12 +101,5 @@ const captionStyle: React.CSSProperties = {
   color: '#000000',
 };
 
-const dividerStyle: React.CSSProperties = {
-  margin: '30px 0',
-  border: 'none',
-  height: '1px',
-  backgroundColor: '#ccc',
-  width: '80%',
-};
 
 export default Home;

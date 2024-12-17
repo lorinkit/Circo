@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../partials/Header";
 import Footer from "../partials/Footer";
+import Header from "../partials/Header";
 
 type Props = {
   children: React.ReactNode;
@@ -8,9 +8,9 @@ type Props = {
 const MainLayout: React.FC<Props> = ({ children }) => {
   return (
     <div>
-      <Header />
+      <Header/>
       {children}
-      <Footer />
+      <Footer/>
     </div>
   );
 };

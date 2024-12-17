@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: '',
+  apiKey: 'AIzaSyC0V1fNBYURm9Pc-kg2TMcUc_6Dj3oyJ_I',
   authDomain: 'circo-1122.firebaseapp.com',
   projectId: 'circo-1122',
   storageBucket: 'circo-1122.firebasestorage.app',

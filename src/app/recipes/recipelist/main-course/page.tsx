@@ -4,11 +4,11 @@ import MainLayout from '@/components/layout/MainLayout';
 
 const Home: React.FC = () => {
   const buttons = [
-    { src: '/images/appetizers/Deviled eggs.png', alt: 'Deviled Eggs', id: 'eggs' },
-    { src: '/images/appetizers/Stuffed mushroom.jpg', alt: 'Stuffed Mushroom', id: 'mushroom' },
-    { src: '/images/appetizers/Buffalo Cauliflower Wings.jpg', alt: 'Buffalo Cauliflower Wings', id: 'buffalo-cauliflower' },
-    { src: '/images/appetizers/Taquitos.jpg', alt: 'Taquitos', id: 'taquitos' },
-    { src: '/images/appetizers/Jalapeno Poppers.jpg', alt: 'Jalapeno Poppers', id: 'jalapeno-poppers' },
+    { src: '/images/maincourse/Cordon Bleu.jpg', alt: 'Chicken Cordon Bleu Meatballs ', id: 'meatballs' },
+    { src: '/images/maincourse/Lemon Garlic Chicken.jpg', alt: 'Sheet Pan Lemon Garlic Chicken with Vegetables', id: 'chicken' },
+    { src: '/images/maincourse/Pork Tenderloin.jpg', alt: 'Pork Tenderloins with Cranberries, Walnuts, and Dried Fruit', id: 'pork-tenderloin' },
+    { src: '/images/maincourse/Shrimp Stir Fry.jpg', alt: 'Shrimp Stir-Fry With Snap Peas and Baby Corn', id: 'shrimp' },
+    { src: '/images/maincourse/Skillet Mac n Cheese.jpg', alt: 'One Pan Breakfast Skillet Mac and Cheese', id: 'macncheese' },
   ];
 
   return (
@@ -24,39 +24,39 @@ const Home: React.FC = () => {
         
         <div className="absolute inset-0 bg-[#EEEEEE] opacity-95"></div>
 
-        {/* Content Section */}
-        <div style={contentStyle}>
-          <h1 style={headerStyle}>Circo Recipe Share</h1>
-          <p style={introStyle}>Appetizers</p>
+      {/* Content Section */}
+      <div style={contentStyle}>
+        <h1 style={headerStyle}>Circo Recipe Share</h1>
+        <p style={introStyle}>Main Course</p>
 
-          {/* Section 1 */}
-          <div style={columnsContainerStyle}>
-            {buttons.slice(0, 5).map((button, index) => (
-              <Link key={index} href={`/recipes/recipelist/apetizers/${button.id}`} style={buttonStyle}>
-                <div>
-                  <img src={button.src} alt={button.alt} style={imageStyle} />
-                  <span style={captionStyle}>{button.alt}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
+        {/* Section 1 */}
+        <div style={columnsContainerStyle}>
+          {buttons.slice(0, 5).map((button, index) => (
+            <Link key={index} href={`/recipes/recipelist/main-course/${button.id}`} style={buttonStyle}>
+              <div>
+                <img src={button.src} alt={button.alt} style={imageStyle} />
+                <span style={captionStyle}>{button.alt}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
 
-          {/* Section Divider */}
-          <hr style={dividerStyle} />
+        {/* Section Divider */}
+        <hr style={dividerStyle} />
 
-          {/* Section 2 */}
-          <div style={columnsContainerStyle}>
-            {buttons.slice(5).map((button, index) => (
-              <Link key={index} href={`/recipes/recipelist/apetizers/${button.id}`} style={buttonStyle}>
-                <div>
-                  <img src={button.src} alt={button.alt} style={imageStyle} />
-                  <span style={captionStyle}>{button.alt}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
+        {/* Section 2 */}
+        <div style={columnsContainerStyle}>
+          {buttons.slice(5).map((button, index) => (
+            <Link key={index} href={`/recipes/recipelist/main-course/${button.id}`} style={buttonStyle}>
+              <div>
+                <img src={button.src} alt={button.alt} style={imageStyle} />
+                <span style={captionStyle}>{button.alt}</span>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
+    </div>
     </MainLayout>
   );
 };

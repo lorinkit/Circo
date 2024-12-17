@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import MainLayout from '@/components/layout/MainLayout';
-import { auth, GoogleAuthProvider, signInWithPopup } from '@/configs/firebase';
+import { auth, GoogleAuthProvider, signInWithPopup } from '@/configs/firebase'; // Import Firebase functions
 
 const SignUp: React.FC = () => {
   const router = useRouter();
@@ -27,7 +27,7 @@ const SignUp: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     if (
       !formData.fullName ||
       !formData.email ||
@@ -39,13 +39,13 @@ const SignUp: React.FC = () => {
       setIsSuccessful(false);
       return;
     }
-
+  
     if (formData.password !== formData.confirmPassword) {
       setStatusMessage('Passwords do not match.');
       setIsSuccessful(false);
       return;
     }
-
+  
     try {
       const res = await fetch('/api/signup', {
         method: 'POST',
@@ -54,7 +54,7 @@ const SignUp: React.FC = () => {
         },
         body: JSON.stringify(formData),
       });
-
+  
       const data = await res.json(); // Parse JSON
       if (!res.ok) {
         console.error('API error:', data.message);
@@ -63,6 +63,8 @@ const SignUp: React.FC = () => {
       } else {
         setStatusMessage('Your account has been created successfully!');
         setIsSuccessful(true);
+  
+        // Redirect to login page after successful sign-up
         router.push('/sign/login');
       }
     } catch (error) {
@@ -79,6 +81,7 @@ const SignUp: React.FC = () => {
       });
     }
   };
+  
 
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
@@ -87,7 +90,7 @@ const SignUp: React.FC = () => {
       const user = result.user;
       console.log('Google Sign-In successful:', user);
       // Handle the user (e.g., store user data or redirect)
-      router.push('/'); // Example redirect after successful login
+      router.push('/dashboard'); // Example redirect after successful login
     } catch (error) {
       console.error('Google Sign-In error:', error);
       setStatusMessage('Google Sign-In failed. Please try again.');
@@ -96,7 +99,7 @@ const SignUp: React.FC = () => {
   };
 
   const handleLogIn = () => {
-    router.push('/sign/login');
+    router.push('/login');
   };
 
   return (

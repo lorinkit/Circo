@@ -7,4 +7,4 @@ const db = mysql.createPool({
   database: 'circodb',
 });
 
-export { db };
+export default db;
